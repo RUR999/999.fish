@@ -1,3 +1,4 @@
+
 function _git_branch_name
   echo (command git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
 end
@@ -78,4 +79,3 @@ function runtime -d 'command run time'
   set_color 808080
   echo -n $hours$minutes$seconds
 end
-set name "999+"
