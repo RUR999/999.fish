@@ -1,4 +1,5 @@
 
+
 function center -a width
     set -e argv[1] #Remove width argument
     set -l len (string length -- "$argv")
