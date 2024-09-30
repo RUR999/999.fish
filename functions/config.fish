@@ -14,7 +14,7 @@ echo ""
 set_color -o green
 echo "$bname"|figlet -w $(tput cols) -cf ar
 set_color -o blue
-center $COLUMNS "Hello $name ..."|pv -qL 10
+center $COLUMNS "Hello $name ..."
 center $COLUMNS "Welcome To Termux ..."
 echo ""
 set_color normal
