@@ -100,6 +100,7 @@ echo -e "${boxg} ${g}Downloading Functions File${n}"
 (curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/functions/fish_greeting.fish -o $HOME/.config/fish/functions/fish_greeting.fish) &> /dev/null & spin
 (curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/functions/fish_prompt.fish -o $HOME/.config/fish/functions/temp.fish) &> /dev/null & spin
 (curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/functions/config.fish -o $HOME/.config/fish/temp2.fish) &> /dev/null & spin
+(curl https://raw.githubusercontent.com/xero/figlet-fonts/refs/heads/master/ANSI%20Regular.flf -o $HOME/../usr/share/figlet/ar.flf) &> /dev/null & spin
 main
 rm -rf $HOME/.config/fish/functions/temp.fish
 rm -rf $HOME/.config/fish/temp2.fish
