@@ -13,36 +13,26 @@ banner() {
     echo -e "\n by RUR 999\n\n${n}"
 }
 
-clear;banner
-if [ -f /data/data/com.termux/files/usr/etc/motd ]; then
-    rm -rf /data/data/com.termux/files/usr/etc/motd
+setfile(){
+    if [ -f $HOME/../usr/etc/motd ]; then
+    rm -rf $HOME/../usr/etc/motd
     fi
-if [ -f $HOME/.config/fish/functions ]; then
+    if [ -d $HOME/.config/fish/functions ]; then
     rm -rf $HOME/.config/fish/functions
     mkdir $HOME/.config/fish/functions
     touch $HOME/.config/fish/functions/fish_prompt.fish
-    touch $HOME/.config/fish/functions/config.fish
-    fi
-if [ -f $HOME/.config/fish/config.fish ]; then
-    rm -rf $HOME/.config/fish/config.fish
-    fi
-    
-pkgs=( fish figlet )
-for pkg in "${pkgs[@]}";do
-    echo -e "${boxg} ${g}Installing ${pkg}${n}"
-    (pkg install -y ${pkg}) &> /dev/null & spin
-    if [[ $(command -v ${pkg}) ]]; then
-    echo -e "${boxg}${g} ${pkg} Installed Successfull${n}"
     else
-    echo -e "${boxr} ${r}${pkg} Install Error ${g}First ${pkg} Install Manually Then Run Again${n}"
-    exit
+    mkdir $HOME/.config/fish/functions
+    touch $HOME/.config/fish/functions/fish_prompt.fish
     fi
-done
-echo -e "${boxg} ${g}Downloading Functions File${n}"
-(curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/functions/fish_greeting.fish -o $HOME/.config/fish/functions/fish_greeting.fish) &> /dev/null & spin
-(curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/functions/fish_prompt.fish -o $HOME/.config/fish/functions/temp.fish) &> /dev/null & spin
-(curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/functions/config.fish -o $HOME/.config/fish/temp2.fish) &> /dev/null & spin
-    
+    if [ -f $HOME/.config/fish/config.fish ]; then
+    rm -rf $HOME/.config/fish/config.fish
+    touch $HOME/.config/fish/config.fish
+    else
+    touch $HOME/.config/fish/config.fish
+    fi
+}
+
 termpro(){
     echo -en "${boxq} ${g}Do You Want To Change Extra Key & Cursor Style? (y/n)${n} "
     read tp
@@ -83,12 +73,11 @@ setban(){
     echo "set bname \"${bname}\"
     set name \"${name}\""> $HOME/.config/fish/config.fish
     cat $HOME/.config/fish/temp2.fish >> $HOME/.config/fish/config.fish
-    rm -rf $HOME/.config/fish/functions/temp.fish
-    rm -rf $HOME/.config/fish/temp2.fish
 }
 
 main(){
     clear; banner
+    setfile
     setban
     termpro
     chsh -s fish
@@ -96,4 +85,23 @@ main(){
     clear; banner
     echo -e "${boxg} ${g}Now Exit From Termux And Again Open Termux${n}"
 }
+
+clear;banner
+pkgs=( fish figlet )
+for pkg in "${pkgs[@]}";do
+    echo -e "${boxg} ${g}Installing ${pkg}${n}"
+    (pkg install -y ${pkg}) &> /dev/null & spin
+    if [[ $(command -v ${pkg}) ]]; then
+    echo -e "${boxg}${g} ${pkg} Installed Successfull${n}"
+    else
+    echo -e "${boxr} ${r}${pkg} Install Error ${g}First ${pkg} Install Manually Then Run Again${n}"
+    exit
+    fi
+done
+echo -e "${boxg} ${g}Downloading Functions File${n}"
+(curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/functions/fish_greeting.fish -o $HOME/.config/fish/functions/fish_greeting.fish) &> /dev/null & spin
+(curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/functions/fish_prompt.fish -o $HOME/.config/fish/functions/temp.fish) &> /dev/null & spin
+(curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/functions/config.fish -o $HOME/.config/fish/temp2.fish) &> /dev/null & spin
 main
+rm -rf $HOME/.config/fish/functions/temp.fish
+rm -rf $HOME/.config/fish/temp2.fish
