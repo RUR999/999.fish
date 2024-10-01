@@ -10,14 +10,14 @@ boxr="\033[1;34m[\033[1;31m!\033[1;34m]"
 . <(curl -sLo- "https://raw.githubusercontent.com/RUR999/spinner/refs/heads/main/spin.sh")
 
 banner() {
-    echo -e "\n${b┏━━━┓┏━━━┓┏━━━┓┏━┳┳━┳┓\n┃┏━┓┃┃┏━┓┃┃┏━┓┃┃━╋┫━┫┗┓\n┃┗━┛┃┃┗━┛┃┃┗━┛┃┃┏┫┣━┃┃┃\n┗━━┓┃┗━━┓┃┗━━┓┃┗┛┗┻━┻┻┛\n┏━━┛┃┏━━┛┃┏━━┛┃ by RUR 999+\n\n${n}"
+    echo -e "\n${b┏━━━┓┏━━━┓┏━━━┓┏━┳┳━┳┓\n┃┏━┓┃┃┏━┓┃┃┏━┓┃┃━╋┫━┫┗┓\n┃┗━┛┃┃┗━┛┃┃┗━┛┃┃┏┫┣━┃┃┃\n┗━━┓┃┗━━┓┃┗━━┓┃┗┛┗┻━┻┻┛\n┏━━┛┃┏━━┛┃┏━━┛┃ by RUR 999\n\n${n}"
 }
 
 clear;banner
 if [ -f /data/data/com.termux/files/usr/etc/motd ]; then
     rm -rf /data/data/com.termux/files/usr/etc/motd
     fi
-if [ -f $HOME/.config/fish/functions/* ]; then
+if [ -f $HOME/.config/fish/functions/*.fish ]; then
     rm -rf $HOME/.config/fish/functions/*
     fi
 if [ -f $HOME/.config/fish/config.fish ]; then
