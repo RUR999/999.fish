@@ -17,12 +17,10 @@ setfile(){
     if [ -f $HOME/../usr/etc/motd ]; then
     rm -rf $HOME/../usr/etc/motd
     fi
-    if [ -d $HOME/.config/fish/functions ]; then
-    rm -rf $HOME/.config/fish/functions
-    mkdir $HOME/.config/fish/functions
+    if [ -f $HOME/.config/fish/functions/fish_prompt.fish ]; then
+    rm -rf $HOME/.config/fish/functions/fish_prompt.fish
     touch $HOME/.config/fish/functions/fish_prompt.fish
     else
-    mkdir $HOME/.config/fish/functions
     touch $HOME/.config/fish/functions/fish_prompt.fish
     fi
     if [ -f $HOME/.config/fish/config.fish ]; then
