@@ -10,7 +10,7 @@ boxr="\033[1;34m[\033[1;31m!\033[1;34m]"
 . <(curl -sLo- "https://raw.githubusercontent.com/RUR999/spinner/refs/heads/main/spin.sh")
 
 banner() {
-    echo -e "\n${b}999 fish\n\n${n}"
+    echo -e "\n${b┏━━━┓┏━━━┓┏━━━┓┏━┳┳━┳┓\n┃┏━┓┃┃┏━┓┃┃┏━┓┃┃━╋┫━┫┗┓\n┃┗━┛┃┃┗━┛┃┃┗━┛┃┃┏┫┣━┃┃┃\n┗━━┓┃┗━━┓┃┗━━┓┃┗┛┗┻━┻┻┛\n┏━━┛┃┏━━┛┃┏━━┛┃ by RUR 999+\n\n${n}"
 }
 
 clear;banner
@@ -36,9 +36,9 @@ for pkg in "${pkgs[@]}";do
     fi
 done
 echo -e "${boxg} ${g}Downloading Functions File${n}"
-(curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/functions/fish_greeting.fish -o ~/.config/fish/functions/fish_greeting.fish) &> /dev/null & spin
-(curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/functions/fish_prompt.fish -o ~/.config/fish/functions/temp.fish) &> /dev/null & spin
-(curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/functions/config.fish -o ~/.config/fish/temp2.fish) &> /dev/null & spin
+(curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/functions/fish_greeting.fish -o $HOME/.config/fish/functions/fish_greeting.fish) &> /dev/null & spin
+(curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/functions/fish_prompt.fish -o $HOME/.config/fish/functions/temp.fish) &> /dev/null & spin
+(curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/functions/config.fish -o $HOME/.config/fish/temp2.fish) &> /dev/null & spin
     
 termpro(){
     echo -en "${boxq} ${g}Do You Want To Change Extra Key & Cursor Style? (y/n)${n} "
@@ -48,7 +48,7 @@ termpro(){
     if [ -f $HOME/.termux/termux.properties ]; then
     rm -rf $HOME/.termux/termux.properties
     fi
-    (curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/files/termux.properties -o .termux/termux.properties) &> /dev/null & spin
+    (curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/files/termux.properties -o $HOME/.termux/termux.properties) &> /dev/null & spin
     ;;
     N|n) 
     echo ""
@@ -75,13 +75,13 @@ setban(){
     break
     fi
     done
-    echo "set name \"${name}\""> ~/.config/fish/functions/fish_prompt.fish
-    cat ~/.config/fish/functions/temp.fish >> ~/.config/fish/functions/fish_prompt.fish
+    echo "set name \"${name}\""> $HOME/.config/fish/functions/fish_prompt.fish
+    cat $HOME/.config/fish/functions/temp.fish >> $HOME/.config/fish/functions/fish_prompt.fish
     echo "set bname \"${bname}\"
-    set name \"${name}\""> ~/.config/fish/config.fish
-    cat ~/.config/fish/temp2.fish >> ~/.config/fish/config.fish
-    rm -rf ~/.config/fish/functions/temp.fish
-    rm -rf ~/.config/fish/temp2.fish
+    set name \"${name}\""> $HOME/.config/fish/config.fish
+    cat $HOME/.config/fish/temp2.fish >> $HOME/.config/fish/config.fish
+    rm -rf $HOME/.config/fish/functions/temp.fish
+    rm -rf $HOME/.config/fish/temp2.fish
 }
 
 main(){
