@@ -10,7 +10,7 @@ boxr="\033[1;34m[\033[1;31m!\033[1;34m]"
 . <(curl -sLo- "https://raw.githubusercontent.com/RUR999/spinner/refs/heads/main/spin.sh")
 
 banner() {
-    echo -e "\n${b}999 fish\n\n${n}"
+    echo -e "${g}╔═══╗╔═══╗╔═══╗╔═╦╦═╦╗\n║╔═╗║║╔═╗║║╔═╗║║═╬╣═╣╚╗\n║╚═╝║║╚═╝║║╚═╝║║╔╣╠═║║║\n╚══╗║╚══╗║╚══╗║╚╝╚╩═╩╩╝\n╔══╝║╔══╝║╔══╝║ ${c}by RUR99${n}"
 }
 
 clear;banner
