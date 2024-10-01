@@ -20,6 +20,8 @@ if [ -f /data/data/com.termux/files/usr/etc/motd ]; then
 if [ -f $HOME/.config/fish/functions ]; then
     rm -rf $HOME/.config/fish/functions
     mkdir $HOME/.config/fish/functions
+    touch $HOME/.config/fish/functions/fish_prompt.fish
+    touch $HOME/.config/fish/functions/config.fish
     fi
 if [ -f $HOME/.config/fish/config.fish ]; then
     rm -rf $HOME/.config/fish/config.fish
