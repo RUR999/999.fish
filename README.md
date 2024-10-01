@@ -3,10 +3,7 @@ Fish functions
 
 ## Installing 
 ```
-git clone https://github.com/RUR999/999.fish
-```
-```
-cd 999.fish
+curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/999.sh -o 999.sh
 ```
 ```run
 bash 999.sh
