@@ -10,13 +10,20 @@ boxr="\033[1;34m[\033[1;31m!\033[1;34m]"
 . <(curl -sLo- "https://raw.githubusercontent.com/RUR999/spinner/refs/heads/main/spin.sh")
 
 banner() {
-    echo -e "${g}╔═══╗╔═══╗╔═══╗╔═╦╦═╦╗\n║╔═╗║║╔═╗║║╔═╗║║═╬╣═╣╚╗\n║╚═╝║║╚═╝║║╚═╝║║╔╣╠═║║║\n╚══╗║╚══╗║╚══╗║╚╝╚╩═╩╩╝\n╔══╝║╔══╝║╔══╝║ ${c}by RUR99\n\n${n}"
+    echo -e "\n${b}999 fish\n\n${n}"
 }
 
 clear;banner
-rm -rf ~/../usr/etc/motd
-rm -rf ~/.config/fish/functions/*
-rm -rf ~/.config/fish/config.fish
+if [ -f /data/data/com.termux/files/usr/etc/motd ]; then
+    rm -rf /data/data/com.termux/files/usr/etc/motd
+    fi
+if [ -f $HOME/.config/fish/functions/* ]; then
+    rm -rf $HOME/.config/fish/functions/*
+    fi
+if [ -f $HOME/.config/fish/config.fish ]; then
+    rm -rf $HOME/.config/fish/config.fish
+    fi
+    
 pkgs=( fish figlet )
 for pkg in "${pkgs[@]}";do
     echo -e "${boxg} ${g}Installing ${pkg}${n}"
@@ -24,7 +31,7 @@ for pkg in "${pkgs[@]}";do
     if [[ $(command -v ${pkg}) ]]; then
     echo -e "${boxg}${g} ${pkg} Installed Successfull${n}"
     else
-    echo -e "${boxr} ${r}Install Error ${pkg}. ${g}First Install ${pkg} Manually Then Run Again${n}"
+    echo -e "${boxr} ${r}${pkg} Install Error ${g}First ${pkg} Install Manually Then Run Again${n}"
     exit
     fi
 done
@@ -38,7 +45,9 @@ termpro(){
     read tp
     case $tp in
     Y|y)
-    rm -rf .termux/termux.properties
+    if [ -f $HOME/.termux/termux.properties ]; then
+    rm -rf $HOME/.termux/termux.properties
+    fi
     (curl https://raw.githubusercontent.com/RUR999/999.fish/refs/heads/main/files/termux.properties -o .termux/termux.properties) &> /dev/null & spin
     ;;
     N|n) 
