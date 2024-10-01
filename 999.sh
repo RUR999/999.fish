@@ -17,8 +17,9 @@ clear;banner
 if [ -f /data/data/com.termux/files/usr/etc/motd ]; then
     rm -rf /data/data/com.termux/files/usr/etc/motd
     fi
-if [ -f $HOME/.config/fish/functions/*.fish ]; then
-    rm -rf $HOME/.config/fish/functions/*
+if [ -f $HOME/.config/fish/functions ]; then
+    rm -rf $HOME/.config/fish/functions
+    mkdir $HOME/.config/fish/functions
     fi
 if [ -f $HOME/.config/fish/config.fish ]; then
     rm -rf $HOME/.config/fish/config.fish
